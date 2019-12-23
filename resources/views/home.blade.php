@@ -221,30 +221,34 @@
           </div>
         </div>
           @foreach($web as $w)
-            <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-              <a href="">
-                <?php 
-                      echo '<img src="data:image/jpg;base64,'.base64_encode( $w->foto ).'" alt="">';
-                ?>
-                <div class="details">
-                  <h4>{{ $w->nama }}</h4>
-                  <span>{{ $w->deskripsi }}</span>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+                <a href="">
+                  <?php 
+                        echo '<img src="data:image/jpg;base64,'.base64_encode( $w->foto ).'" alt="">';
+                  ?>
+                  <div class="details">
+                    <h4>{{ $w->nama }}</h4>
+                    <span>{{ $w->deskripsi }}</span>
+                  </div>
+                </a>
                 </div>
-              </a>
             </div>
           @endforeach
 
           @foreach($app as $a)
-            <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-              <a href="">
-                <?php 
-                      echo '<img src="data:image/jpg;base64,'.base64_encode( $a->foto ).'" alt="">';
-                ?>
-                <div class="details">
-                  <h4>{{ $a->nama }}</h4>
-                  <span>{{ $a->deskripsi }}</span>
-                </div>
-              </a>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+                <a href="">
+                  <?php 
+                        echo '<img src="data:image/jpg;base64,'.base64_encode( $a->foto ).'" alt="">';
+                  ?>
+                  <div class="details">
+                    <h4>{{ $a->nama }}</h4>
+                    <span>{{ $a->deskripsi }}</span>
+                  </div>
+                </a>
+              </div>
             </div>
           @endforeach
         </div>
