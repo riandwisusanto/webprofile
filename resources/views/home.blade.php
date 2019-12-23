@@ -47,7 +47,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">Beranda</a></li>
+          <li><a href="#hero">Beranda</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#services">Layanan</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -211,61 +211,43 @@
         </div>
         <br>
         <div class="row">
-
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web, .filter-desktop" class="filter-active">All</li>
+              <li data-filter=".filter-app">Mobile</li>
+              <li data-filter=".filter-web">Website</li>
+              <li data-filter=".filter-desktop">Desktop</li>
             </ul>
           </div>
         </div>
+          @foreach($web as $w)
+            <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+              <a href="">
+                <?php 
+                      echo '<img src="data:image/jpg;base64,'.base64_encode( $w->foto ).'" alt="">';
+                ?>
+                <div class="details">
+                  <h4>{{ $w->nama }}</h4>
+                  <span>{{ $w->deskripsi }}</span>
+                </div>
+              </a>
+            </div>
+          @endforeach
 
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app1.jpg" alt="">
-              <div class="details">
-                <h4>App 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web2.jpg" alt="">
-              <div class="details">
-                <h4>Web 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app3.jpg" alt="">
-              <div class="details">
-                <h4>App 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web1.jpg" alt="">
-              <div class="details">
-                <h4>Card 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          
-
+          @foreach($app as $a)
+            <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+              <a href="">
+                <?php 
+                      echo '<img src="data:image/jpg;base64,'.base64_encode( $a->foto ).'" alt="">';
+                ?>
+                <div class="details">
+                  <h4>{{ $a->nama }}</h4>
+                  <span>{{ $a->deskripsi }}</span>
+                </div>
+              </a>
+            </div>
+          @endforeach
         </div>
-
       </div>
     </section><!-- #portfolio -->
 
@@ -279,53 +261,22 @@
           <br><br>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/tim1.jpg" alt=""></div>
-              <h4>Rian Dwi</h4>
-              <span>Back-end Engineer</span>
-              <div class="social">
-                <a href="https://web.facebook.com/rdwisusanto1"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/riandwisusanto/"><i class="fa fa-instagram"></i></a>
+          @foreach($tim ?? '' as $tm)
+              <div class="col-lg-3 col-md-6">
+                <div class="member">
+                  <div class="pic">
+                  <?php 
+                      echo '<img src="data:image/jpg;base64,'.base64_encode( $tm->foto ).'" alt="">';
+                   ?></div>
+                  <h4>{{ $tm->nama }}</h4>
+                  <span>{{ $tm->bidang }}</span>
+                  <div class="social">
+                    <a href="{{ $tm->fb }}"><i class="fa fa-facebook"></i></a>
+                    <a href="{{ $tm->ig }}"><i class="fa fa-instagram"></i></a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/tim2.jpg" alt=""></div>
-              <h4>Iqbalul Hidayat</h4>
-              <span>Front-end Engineer</span>
-              <div class="social">
-                <a href="https://web.facebook.com/iqbalul.hidayat"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/iqbalulhidayat/"><i class="fa fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/tim3.jpg" alt=""></div>
-              <h4>Sulistyanto Laili</h4>
-              <span>Designer/Sistem Analis</span>
-              <div class="social">
-                <a href="https://web.facebook.com/laili.beastmaniak"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/slaillyr_/"><i class="fa fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member">
-              <div class="pic"><img src="img/tim4.jpg" alt=""></div>
-              <h4>Salsabila Maharani</h4>
-              <span>Designer/Sistem Analis</span>
-              <div class="social">
-                <a href="https://web.facebook.com/salsabila.herlambang"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/salsabilaherlambang/"><i class="fa fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
 
       </div>

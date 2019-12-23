@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'homeController@loadtim');
+Route::get('/', 'homeController@portofolioweb');
+Route::get('/', 'homeController@portofolioapp');
