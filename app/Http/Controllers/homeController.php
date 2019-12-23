@@ -28,4 +28,13 @@ class homeController extends Controller
     	$app = portofolioModel::where(['id' => 'mobile'])->get();
     	return view('home', compact('app','web', 'tim'));	
     }
+
+    public function portofoliodesk()
+    {
+    	$tim = timModel::all();
+    	$web = portofolioModel::where(['id' => 'web'])->get();
+    	$app = portofolioModel::where(['id' => 'mobile'])->get();
+    	$desk = portofolioModel::where(['id' => 'mobile'])->get();
+    	return view('home', compact('app','web', 'tim', 'desk'));	
+    }
 }

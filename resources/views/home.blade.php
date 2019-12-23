@@ -220,20 +220,18 @@
             </ul>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="portfolio-wrapper">
           @foreach($web as $w)
-            <div class="row">
-                <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-                <a href="">
-                  <?php 
-                        echo '<img src="data:image/jpg;base64,'.base64_encode( $w->foto ).'" alt="">';
-                  ?>
-                  <div class="details">
-                    <h4>{{ $w->nama }}</h4>
-                    <span>{{ $w->deskripsi }}</span>
-                  </div>
-                </a>
-                </div>
+            <div class="col-lg-3 col-md-6 portfolio-item filter-web">
+            <a href="">
+              <?php 
+                    echo '<img src="data:image/jpg;base64,'.base64_encode( $w->foto ).'" alt="">';
+              ?>
+              <div class="details">
+                <h4>{{ $w->nama }}</h4>
+                <span>{{ $w->deskripsi }}</span>
+              </div>
+            </a>
             </div>
           @endforeach
 
@@ -246,6 +244,19 @@
                 <div class="details">
                   <h4>{{ $a->nama }}</h4>
                   <span>{{ $a->deskripsi }}</span>
+                </div>
+              </a>
+            </div>
+          @endforeach
+          @foreach($desk as $d)
+            <div class="col-lg-3 col-md-6 portfolio-item filter-app">
+              <a href="">
+                <?php 
+                      echo '<img src="data:image/jpg;base64,'.base64_encode( $d->foto ).'" alt="">';
+                ?>
+                <div class="details">
+                  <h4>{{ $d->nama }}</h4>
+                  <span>{{ $d->deskripsi }}</span>
                 </div>
               </a>
             </div>

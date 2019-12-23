@@ -14,3 +14,4 @@
 Route::get('/', 'homeController@loadtim');
 Route::get('/', 'homeController@portofolioweb');
 Route::get('/', 'homeController@portofolioapp');
+Route::get('/', 'homeController@portofoliodesk');
